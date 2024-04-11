@@ -3,6 +3,8 @@
 # Ideas
 multithreaded coding on raspberry pi pico
 https://www.youtube.com/watch?v=1q0EaTkztIs
+https://www.electrosoftcloud.com/en/multithreaded-script-on-raspberry-pi-pico-and-micropython/
+https://bytesnbits.co.uk/multi-thread-coding-on-the-raspberry-pi-pico-in-micropython/
 
 use a GSM module A9G to send an alert message
 https://wiki.dfrobot.com/A9G_Module_SKU_TEL0134
