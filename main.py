@@ -1,6 +1,5 @@
 from machine import Pin, ADC
 from time import sleep
-from DHT11 import DHT11
 
 led_g = Pin("LED", Pin.OUT)
 
