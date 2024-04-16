@@ -48,4 +48,24 @@ def test_connection():
         print("A9G module is not properly connected or not responding.")
         return False
 
+def gps_read():
+    print(send_at_command("AT+GPS=1"))
+
+    print(send_at_command("AT+GPSRD=1"))
+    sleep(2)
+    return uart.read().decode()
+
+def is_gps_connected(gps_response):
+    # Split the response into individual sentences
+    sentences = gps_response.split('\n')
+    for sentence in sentences:
+        # Check if the sentence starts with "$GNRMC"
+        if sentence.startswith("$GNRMC"):
+            # Split the sentence by commas
+            sentence_parts = sentence.split(',')
+            # Check if the status field is 'A' (Active)
+            if len(sentence_parts) >= 12 and sentence_parts[2] == 'A':
+                return True
+    return False
+
 # make_call("0714453474")

@@ -2,7 +2,7 @@ from machine import Pin, I2C
 from time import sleep
 import dht
 
-temp_sensor = dht.DHT22(Pin("GP0"))
+temp_sensor = dht.DHT22(Pin("GP18"))
 
 while True:
     try:

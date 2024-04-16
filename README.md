@@ -8,6 +8,8 @@ https://bytesnbits.co.uk/multi-thread-coding-on-the-raspberry-pi-pico-in-micropy
 
 use a GSM module A9G to send an alert message
 https://wiki.dfrobot.com/A9G_Module_SKU_TEL0134
+AT commands
+https://docs.ai-thinker.com/_media/b_and_t/nb-iot/n92/kaifazhidaowendang/rda8908a_at_commandmanual9.0.pdf
 
 The pi pico can connect to obd
 https://www.youtube.com/watch?v=kvpxj5QCbNE
