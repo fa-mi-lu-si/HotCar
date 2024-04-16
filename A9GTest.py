@@ -12,15 +12,35 @@ def send_at_command(command):
 
 def make_call(number):
     response = send_at_command('ATD{};'.format(number))
-    print(f"Response: {response}")
-    if response and not ("OK" in response):
+    
+    if response and ("OK" not in response):
         print("Failed to make the call")
         return
     print(f"Call placed to {number}")
 
+def send_sms(number, text):
+    response = send_at_command("AT+CMGF=1;")
+
+    if not response or ("OK" not in response):
+        print("Failed to send text")
+        return
+    
+    response = send_at_command('AT+CMGS="{}"'.format(number))
+    if not response or (">" not in response):
+        print("Failed to set recipient number")
+        return
+    
+    response = send_at_command(text)
+    print(response)
+    if not response:
+        print("Failed to send message")
+        return
+    
+    uart.write(chr(26))
+    sleep(1)
+
 def test_connection():
     response = send_at_command('AT')
-    print(response)
     if response and ('OK' in response):
         print("A9G module is properly connected.")
         return True
@@ -28,4 +48,4 @@ def test_connection():
         print("A9G module is not properly connected or not responding.")
         return False
 
-make_call("0714453474")
+# make_call("0714453474")
